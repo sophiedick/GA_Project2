@@ -1,0 +1,22 @@
+
+<h1> Users List </h1>
+
+<p>Welcome <%= @current_user.username %></p>
+
+<table>
+  <tr>
+    <th> Name </th>
+    <th> Email </th>
+  </tr>
+
+  <% @users.each do |user| %>
+
+  <tr> 
+    <td><a href="/workout/"><%= user.username %></a></td>
+    <td><%= user.email %></td>
+  </tr>
+
+  <% end %>
+</table>
+
+

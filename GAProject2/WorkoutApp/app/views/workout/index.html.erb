@@ -1,0 +1,29 @@
+<h1>Trainingsession#index</h1>
+
+<table>
+  <tr>
+    <th><%= @current_user.username %>'s Workouts! </th>
+    </tr>
+
+
+<% @workout.each do |workout| %>
+
+<tr> 
+  <td><a href="/workout/<%= workout.id %>"><%= workout.name %></a></td>
+  <td><a href ="/exercises/<%= workout.id %>/edit">Edit</a></td>
+  <td>
+  <form action="/exercises/<%= workout.id %>" method="POST">
+  <input type="submit" value="Delete">
+  <input type="hidden" name="_method" value="DELETE">
+  <%= token_tag %>
+  </form>
+  </td>
+  
+</tr>
+
+<% end %> 
+
+</table>
+
+
+<a href="/workout/new"> Create new workout </a>

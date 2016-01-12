@@ -1,0 +1,24 @@
+<h1>Trainingsession#show</h1>
+
+<table>
+  <tr>
+    <th> Creator's Username </th>
+    <th> Body Part </th>
+    <th> Exercise </th>
+    <th> Comments </th>
+    <th> Edit </th>
+    <th> Delete </th>
+  </tr>
+
+  <% @workout.exercises.each do |exercise| %>
+
+  <tr>
+    <td><%= exercise.bodypart %></td>
+    <td><%= exercise.content %></td>
+    <td><%= exercise.comments %></td>
+    
+  </tr>
+
+  <% end %> 
+  </table>
+

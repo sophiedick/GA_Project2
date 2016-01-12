@@ -1,0 +1,46 @@
+<h1>Exercise#index</h1>
+
+<h3><%= current_user.username %>'s Workout's:</h3>
+
+<%= current_user.workouts.name %>
+
+
+<br> <br> 
+
+<table>
+  <tr>
+    <th> Creator's Username </th>
+    <th> Body Part </th>
+    <th> Exercise </th>
+    <th> Comments </th>
+    <th> Edit </th>
+    <th> Delete </th>
+    <th> Add to Workout </th>
+  </tr> 
+
+  <% @exercise.each do |exercise| %>
+
+  <tr>
+    <td><%= exercise_creator(exercise.creator) %></td>
+    <td><%= exercise.bodypart %></td>
+    <td><%= exercise.content %></td>
+    <td><%= exercise.comments %></td>
+    
+    <td><a href = "/workout/<%= exercise.id %>/edit">Edit</a></td>
+    <td>
+
+    <form action="/exercises/<%= exercise.id %>" method="POST">
+    <input type="submit" value="Delete">
+    <input type="hidden" name="_method" value="DELETE">
+    <%= token_tag %>
+    </form>
+    </td>
+    <td><a href = "/workout/<%= current_user.id %>">Add Exercise to Workout</a></td>
+
+  </tr>
+
+  <% end %>
+</table>
+
+<a href = "/exercises/new">Add a new exercise</a> 
+<a href = "/workout">Back to workouts </a> 

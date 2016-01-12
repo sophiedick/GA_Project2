@@ -1,0 +1,44 @@
+<h1>Exercise#edit</h1>
+<p>Find me in app/views/exercise/edit.html.erb</p>
+
+<%= form_for @exercise, url: {action: "update"} do |f| %>
+
+  <div class="field">
+    <%= f.label "Body Part" %><br />
+
+    <%= f.radio_button :bodypart, "Full body" %>
+    <%= f.label :bodypart, "Full Body", :value => "full_body" %>
+
+    <%= f.radio_button :bodypart, "Abs" %>
+    <%= f.label :bodypart, "Abs", :value => "abs" %>
+
+    <%= f.radio_button :bodypart, "Arms" %>
+    <%= f.label :bodypart, "Arms", :value => "arms" %>
+
+    <%= f.radio_button :bodypart, "Back" %>
+    <%= f.label :bodypart, "Back", :value => "back" %>
+
+    <%= f.radio_button :bodypart, "Chest" %>
+    <%= f.label :bodypart, "Chest", :value => "chest" %>
+
+    <%= f.radio_button :bodypart, "Gluts" %>
+    <%= f.label :bodypart, "Gluts", :value => "gluts" %>
+
+    <%= f.radio_button :bodypart, "Legs" %>
+    <%= f.label :bodypart, "Legs", :value => "legs" %>
+                    
+  </div>
+
+  <div class="field">
+    <%= f.label "Exercise" %>
+    <%= f.text_field :content %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Comments" %>
+    <%= f.text_field :comments %>
+  </div>
+
+  <div class="actions"><%= f.submit %></div>
+
+<% end %>

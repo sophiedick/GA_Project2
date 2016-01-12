@@ -1,0 +1,40 @@
+<h1>Trainingsession#new</h1>
+<p>Find me in app/views/trainingsession/new.html.erb</p>
+
+
+  <%= form_for @workout, url: {action: "create"} do |f| %>
+
+    <div class="field">
+      <%= f.label "Workout name:" %>
+      <%= f.text_field :name %>
+    </div>
+
+    <table>
+      <tr>
+        <th> Add exercise to workout </th>
+        <th> Body Part </th>
+        <th> Exercise </th>
+        <th> Comments </th>
+
+      </tr> 
+
+     <% @exercises.each do |f| %>
+
+
+     <tr> 
+
+     <td><%= check_box_tag 'workout[f_ids][]', f.id%></td>
+      
+      <td><%= f.bodypart %></td>
+      <td><%= f.content %></td>
+      <td><%= f.comments %></td>
+     </tr>
+
+     <% end %>
+
+    </table>
+
+    <div class="actions"><%= f.submit %></div>
+
+  <% end %>
+
